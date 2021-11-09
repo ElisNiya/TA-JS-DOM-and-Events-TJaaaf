@@ -1,8 +1,41 @@
-let box = document.createElement("div")
-box.style.height = 4rem;
-box.style.width = 4rem;
-box.innerText = Math.floor(Math.random())
-box.addEventListener("onmouseover", randomColor)
-function randomColor(){
-  
+let allBoxes = document.querySelector(".boxes")
+
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
 }
+
+function generateRandomColor(){
+    let hexCharacters = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
+    
+    let color = "#";
+    
+    for(let i = 0; i < 6; i++){
+        let randomNumber = getRandomNumber(16));
+        color = color + hexCharacters[randomNumber];
+    } 
+    return color;  
+}
+
+for(let i = 0; i< 500; i++){
+    let div = document.createElement("div");
+    div.classList.add("box");
+  
+  let h3 = document.createElement("h3");
+  let randomNr = getRandomNumber(500);
+  
+  h3.innerText = randomNo;
+  div.append(h3)
+  parentBox.append(div)
+}
+
+let allBoxes = document.querySelectorAll(".box");
+
+function handleMouseMove(){
+    allBoxes.forEach((box) => {
+      box.style.backgroundColor = generateRandomColor();
+     // 1st alternative -  box.children[0].innerText = getRandomNumber(500);
+      box.querySelector("h3").innerText = getRandomNumber(500);
+    })
+}
+
+parentBox.addEventListener("mouseMove", handleMouseMove);
