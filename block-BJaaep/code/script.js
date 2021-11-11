@@ -1,16 +1,21 @@
- <h2>Without Event Deligation</h2>
-        <ul class="boxes">
-          <li class="box">1</li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-        </ul>
-      
+let firstBoxes = document.querySelectorAll(".first li");
+let secondBox = document.querySelector(".second")
+
+
+firstBoxes.forEach(box, index) => {
+  box.addEventListener("click", (event) =>{
+    event.target.innerText = index + 1;
+   
+   setTimeout(() => {
+        event.target.innerText ="";
+     },5000)
+  })
+})
+
+secondBox.addEventListener("click", (event) => {
+  let text = event.target.dataset.text;
+
+   setTimeout(() => {
+        event.target.innerText ="";
+     },5000)
+})
